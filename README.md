@@ -1,1 +1,1 @@
-# Contains the projects made during Training at BARC.
+Contains the projects made during Training at BARC.
