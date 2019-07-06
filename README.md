@@ -29,7 +29,7 @@ The project can be divided into 3 major sections:
 ## Classification using CNN
 Convolution Neural Networks have played a major role in the field of Computer Vision in the last few years. Here, we have implemented one such CNN to classify the numerals of the Devanagari script. The numerals of the Devanagari script looks like:
 <p align="center">
-  <img width="500" height="500" src="./img/numerals.png">
+  <img width="600" height="500" src="./img/numerals.png">
 </p>
 
 The CNN model used is rather a basic network to reduce overfitting (as already mentioned before the dataset is small). 
@@ -41,5 +41,5 @@ The model was trained with the `EarlyStopping` callback and it was observed that
 
 The result of the predicted output is as follows:
 <p align="center">
-  <img width="500" height="500" src="./img/predict.png">
+  <img width="1000" height="500" src="./img/predict.png">
 </p>
