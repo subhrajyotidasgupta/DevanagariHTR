@@ -27,7 +27,7 @@ The project can be divided into 3 major sections:
 * **Word and Line Segmentation using Image Processing Techniques.**
 
 ## Classification using CNN
-Convolution Neural Networks have played a major role in the field of Computer Vision in the last few years. Here, we have implemented one such CNN to classify the numerals of the Devanagari script. The numerals of the Devanagari script looks like:
+Convolution Neural Networks have played a major role in the field of Computer Vision in the last few years. Here, one such CNN has been implemented to classify the numerals of the Devanagari script. The numerals of the Devanagari script looks like:
 <p align="center">
   <img width="600" height="500" src="./img/numerals.png">
 </p>
@@ -37,9 +37,28 @@ The CNN model used is rather a basic network to reduce overfitting (as already m
   <img width="550" height="400" src="./img/model.png">
 </p>
 
-The model was trained with the `EarlyStopping` callback and it was observed that the accuracy on the validation dataset stagnates after 5 epochs where it stops further training to avoid overfitting.
+The model was trained with the `EarlyStopping` callback and it was observed that the accuracy on the validation dataset stagnates after 5 epochs where it stops further training to avoid overfitting. The outcomes and the code can be seen in the `devanagri_cnn.ipynb` file.
 
 The result of the predicted output is as follows:
 <p align="center">
   <img width="1000" height="500" src="./img/predict.png">
+</p>
+
+## Studying the use of Transfer Learning
+To better understand the concepts of Deep Learning, a minor implementation of Transfer Learning was also executed.
+
+### Dataset
+Observing the Hindi numeral dataset closely, it can be found out that it has got close resemblances with the `Handwritten Digit MNIST` dataset. Since the MNIST dataset is a larger one with different variations,it was used to train the model.
+<p align="center">
+  <img width="400" height="400" src="./img/handwritten_mnist.png">
+</p>
+
+### Transfer Learning
+A similar model like the one above was built and trained on the MNIST dataset. After training the model, we "froze" the last couple of layers and again trained it on the Hindi numeral dataset, but as mentioned only the last couple of layers. It helped to achieve 2 things:
+* Gain the feature extraction parameters from the model trained on the MNIST dataset.
+* The model could now differentiate between the numerals of the Devanagari script instead of the MNSIT dataset. 
+
+Some of the predictions are:
+<p align="center">
+  <img width="600" height="300" src="./img/tl_predict.png">
 </p>
