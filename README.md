@@ -1,5 +1,5 @@
 # Introduction
-This project involves detection and recognition of handwritten text written in the Devanagari script suing Deep Learning techniques. It was taken up as a project work at Bhabha Atomic Research Center, India in the summer of 2019. Devanagari script is widely used in the Indian subcontinent. It is used in several major languages since ages like Sanskrit, Pali, Hindi, etc. This project deals with text in the Hindi language, to be precise. 
+This project involves detection and recognition of handwritten text written in the Devanagari script suing Deep Learning techniques. It was taken up as a project work at Bhabha Atomic Research Center, India in the summer of 2019. Devanagari script is widely used in the Indian subcontinent. It is used for several major languages since ages like Sanskrit, Pali, Hindi, etc. This project deals with text in the Hindi language, to be precise. 
 
 # Dataset
 This project is based upon the dataset made available at the [International Conference on Computer Vision & Image Processing 2019](http://cvip2019.mnit.ac.in/) at Malaviya National Institute of Technology, Jaipur.
@@ -11,7 +11,7 @@ The dataset contains:
 
 Sample:
 <p align="center">
-  <img width="300" height="400" src="./img/form.jpg">
+  <img width="400" height="500" src="./img/form.jpg">
 </p>
 
 This dataset was divided into `train`, `test`, and `valid` approximately with 96%, 2%, 2% data from the entire dataset respectively.
