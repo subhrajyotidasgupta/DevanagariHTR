@@ -7,7 +7,7 @@ The dataset contains:
 1. Hindi Numerals
 2. Hindi Vowels
 3. Hindi Consonants
-4. Hindi Handwritten Text with seperate annotations for each of them.
+4. Hindi Handwritten Text with separate annotations for each of them.
 
 Sample:
 <p align="center">
@@ -67,7 +67,7 @@ Some of the predictions are:
 Note: It can be observed, that all the predicted values in this sample has been correctly identified.
 
 ## 3. iii. Word and Line Segmentation
-To extract the lines and eventually the words, Image Processing techniques were used. For Line Segmentation, the images were first converted to grayscale. Then several image processing techniques were used like the image was converted to a binary image i.e, all the pixel value was assigned either a  **light** value or a **dark** value depending on a certain fixed threshold. In the resultant image, the pixels with the lower values were dilated. This resulted the words in the same line to be in the same "patch". This was a result of the fact that each line is seperated from the other by a distinguishable space in between. From the result, the contours were detected so as to get the ROI boundaries. The code in `3. img_processing/line_segmentation.ipynb` was used.  A sample text segmented into lines:
+To extract the lines and eventually the words, Image Processing techniques were used. For Line Segmentation, the images were first converted to grayscale. Then several image processing techniques were used like the image was converted to a binary image i.e, all the pixel value was assigned either a  **light** value or a **dark** value depending on a certain fixed threshold. In the resultant image, the pixels with the lower values were dilated. This resulted the words in the same line to be in the same "patch". This was a result of the fact that each line is separated from the other by a distinguishable space in between. From the result, the contours were detected so as to get the ROI boundaries. The code in `3. img_processing/line_segmentation.ipynb` was used.  A sample text segmented into lines:
 <p align="center">
   <img width="600" height="300" src="./img/line_segmentation.png">
 </p>
@@ -79,14 +79,14 @@ For Word Segmentation, the simple [Word Segmentation](https://github.com/githubh
 
 
 ## 3. iv. Training the Handwritten Text Recognition model.
-The implementation of [Handwritten Text Recognition(HTR)](https://github.com/githubharald/SimpleHTR) by Harald was used to study how it performs on both the IAM dataset and the Devanagari dataset respectively. The model in the implementation was built to work on the images of IAM dataset where word images for each of the handwritten text were provided seperately. The model was trained for around 20 epochs after which there was no improvement in the validation accuracy, thus training stopped as a similar feature like the `EarlyStopping` callback was used. A Test Accuracy of nearly 65% was achieved.
+The implementation of [Handwritten Text Recognition(HTR)](https://github.com/githubharald/SimpleHTR) by Harald was used to study how it performs on both the IAM dataset and the Devanagari dataset respectively. The model in the implementation was built to work on the images of IAM dataset where word images for each of the handwritten text were provided separately. The model was trained for around 20 epochs after which there was no improvement in the validation accuracy, thus training stopped as a similar feature like the `EarlyStopping` callback was used. A Test Accuracy of nearly 65% was achieved.
 
-However for the Devanagari dataset, no such seperate word images were available. Therefore, the Word Segmentation implementation played an important role in segmenting the words seperately in each of the images of the forms. Each of the words were seperated for ~50 forms. The ground truth values were also extracted in a format similar to the IAM ground truths. This was fed to the model. After around 40 epochs, the training stopped. However, it was found, that the model was performing very poorly with around 12% accuracy.
+However for the Devanagari dataset, no such separate word images were available. Therefore, the Word Segmentation implementation played an important role in segmenting the words separately in each of the images of the forms. Each of the words were separated for ~50 forms. The ground truth values were also extracted in a format similar to the IAM ground truths. This was fed to the model. After around 40 epochs, the training stopped. However, it was found, that the model was performing very poorly with around 12% accuracy.
 
 # 4. Future Work
 Since the current model did not perform well, as per the study, this project can be given shape in two ways:
 * Preprocess the images - Use Image Processing techniques to preprocess the images more accurately and make it look more like the ones in the IAM dataset. However, a great deal of improvement may not be observed since the model was doing only fairly well with a ~65% accuracy on the IAM dataset itself for which it was designed.
-* Use other Deep Learning approaches - Another approach that could be tried is Character Level Classification. This would be a challenging task since each of the words would be required to be broken down into seperate characters for training on a CNN model. 
+* Use other Deep Learning approaches - Another approach that could be tried is Character Level Classification. This would be a challenging task since each of the words would be required to be broken down into separate characters for training on a CNN model. 
 
 # 5. Conclusion
 As the ending remarks, it should be noted that this dataset is rather very small to train a Deep Learning model. It can clearly be observed that such a small dataset is definitely not the way to go for a robust Deep Learning model. Techniques like Data Augmentation can be used, however, that would not increase the dataset to a huge extent (not even close to 10^5 - 10^6, which is considered preferable for training any Deep Learning model). On a lighter note, therefore, a hunt for a newer and better dataset involving the Devanagari characters has just begun!
