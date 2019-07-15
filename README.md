@@ -38,7 +38,7 @@ The CNN model used is rather a basic network to reduce overfitting (as already m
   <img width="450" height="300" src="./img/model.png">
 </p>
 
-The model was trained with the `EarlyStopping` callback and it was observed that the accuracy on the validation dataset stagnates after 5 epochs where it stops further training to avoid overfitting. The outcomes and the code can be seen in the `devanagri_cnn.ipynb` file.
+The model was trained with the `EarlyStopping` callback and it was observed that the accuracy on the validation dataset stagnates after 5 epochs where it stops further training to avoid overfitting. The outcomes and the code can be seen in the `1.nn_classification/devanagri_cnn.ipynb` file.
 
 The result of the predicted output is as follows:
 <p align="center">
@@ -67,7 +67,7 @@ Some of the predictions are:
 Note: It can be observed, that all the predicted values in this sample has been correctly identified.
 
 ## 3. iii. Word and Line Segmentation
-To extract the lines and eventually the words, Image Processing techniques were used. For Line Segmentation, the images were first converted to grayscale. Then several image processing techniques were used like the image was converted to a binary image i.e, all the pixel value was assigned either a  **light** value or a **dark** value depending on a certain fixed threshold. In the resultant image, the pixels with the lower values were dilated. This resulted the words in the same line to be in the same "patch". This was a result of the fact that each line is seperated from the other by a distinguishable space in between. From the result, the contours were detected so as to get the ROI boundaries. The code in `line_segmentation.ipynb` was used.  A sample text segmented into lines:
+To extract the lines and eventually the words, Image Processing techniques were used. For Line Segmentation, the images were first converted to grayscale. Then several image processing techniques were used like the image was converted to a binary image i.e, all the pixel value was assigned either a  **light** value or a **dark** value depending on a certain fixed threshold. In the resultant image, the pixels with the lower values were dilated. This resulted the words in the same line to be in the same "patch". This was a result of the fact that each line is seperated from the other by a distinguishable space in between. From the result, the contours were detected so as to get the ROI boundaries. The code in `3. img_processing/line_segmentation.ipynb` was used.  A sample text segmented into lines:
 <p align="center">
   <img width="600" height="300" src="./img/line_segmentation.png">
 </p>
