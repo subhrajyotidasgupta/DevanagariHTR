@@ -81,7 +81,15 @@ For Word Segmentation, the simple [Word Segmentation](https://github.com/githubh
 ## 3. iv. Training the Handwritten Text Recognition model.
 The implementation of [Handwritten Text Recognition(HTR)](https://github.com/githubharald/SimpleHTR) by Harald was used to study how it performs on both the IAM dataset and the Devanagari dataset respectively. The model in the implementation was built to work on the images of IAM dataset where word images for each of the handwritten text were provided separately. The model was trained for around 20 epochs after which there was no improvement in the validation accuracy, thus training stopped as a similar feature like the `EarlyStopping` callback was used. A Test Accuracy of nearly 65% was achieved.
 
-However for the Devanagari dataset, no such separate word images were available. Therefore, the Word Segmentation implementation played an important role in segmenting the words separately in each of the images of the forms. Each of the words were separated for ~50 forms. The ground truth values were also extracted in a format similar to the IAM ground truths. This was fed to the model. After around 40 epochs, the training stopped. However, it was found, that the model was performing very poorly with around 12% accuracy.
+However for the Devanagari dataset, no such separate word images were available. Therefore, the Word Segmentation implementation played an important role in segmenting the words separately in each of the images of the forms. Each of the words were separated for ~50 forms. The ground truth values were also extracted in a format similar to the IAM ground truths. This was fed to the model. After around 40 epochs, the training stopped. However, it was found, that the model was performing very poorly with around 14% accuracy.
+
+One of the correct detections are:
+<p align="center">
+  <img width="600" height="50" src="./img/correct_detection.png">
+</p>
+Recognized: "करने"
+Probability: 0.0503839
+
 
 # 4. Future Work
 Since the current model did not perform well, as per the study, this project can be given shape in two ways:
