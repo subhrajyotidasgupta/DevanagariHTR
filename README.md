@@ -79,7 +79,28 @@ For Word Segmentation, the simple [Word Segmentation](https://github.com/githubh
 
 
 ## 3. iv. Training the Handwritten Text Recognition model.
-The implementation of [Handwritten Text Recognition(HTR)](https://github.com/githubharald/SimpleHTR) by Harald was used to study how it performs on both the IAM dataset and the Devanagari dataset respectively. The model in the implementation was built to work on the images of IAM dataset where word images for each of the handwritten text were provided separately. The model was trained for around 20 epochs after which there was no improvement in the validation accuracy, thus training stopped as a similar feature like the `EarlyStopping` callback was used. A Test Accuracy of nearly 65% was achieved.
+The implementation of [Handwritten Text Recognition(HTR)](https://github.com/githubharald/SimpleHTR) by Harald was used to study how it performs on both the IAM dataset and the Devanagari dataset respectively. The model in the implementation was built to work on the images of IAM dataset where word images for each of the handwritten text were provided separately. The model was trained for around 20 epochs after which there was no improvement in the validation accuracy, thus training stopped as a similar feature like the `EarlyStopping` callback was used. A Test Accuracy of nearly 65% was achieved. 
+
+A snapshot of the predictions on the IAM dataset:
+```
+[OK] "board" -> "board"
+[OK] "in" -> "in"
+[OK] "1958" -> "1958"
+[OK] "offered" -> "offered"
+[ERR:2] "six" -> "Sir"
+[ERR:1] "craft" -> "croft"
+[ERR:3] "apprenticeships" -> "spprestsceships"
+[OK] "and" -> "and"
+[OK] "received" -> "received"
+[ERR:2] "450" -> "4so"
+[ERR:2] "applications" -> "opplicoations"
+[OK] "," -> ","
+[OK] "of" -> "of"
+[ERR:1] "whom" -> "whow"
+[ERR:2] "100" -> "1s"
+[OK] "were" -> "were"
+Character error rate: 12.855210%. Word accuracy: 65.909091%.
+```
 
 However for the Devanagari dataset, no such separate word images were available. Therefore, the Word Segmentation implementation played an important role in segmenting the words separately in each of the images of the forms. Each of the words were separated for ~50 forms. The ground truth values were also extracted in a format similar to the IAM ground truths. This was fed to the model. After around 40 epochs, the training stopped. However, it was found, that the model was performing very poorly with around 14% accuracy.
 
