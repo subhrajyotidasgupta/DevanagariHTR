@@ -84,11 +84,14 @@ The implementation of [Handwritten Text Recognition(HTR)](https://github.com/git
 However for the Devanagari dataset, no such separate word images were available. Therefore, the Word Segmentation implementation played an important role in segmenting the words separately in each of the images of the forms. Each of the words were separated for ~50 forms. The ground truth values were also extracted in a format similar to the IAM ground truths. This was fed to the model. After around 40 epochs, the training stopped. However, it was found, that the model was performing very poorly with around 14% accuracy.
 
 One of the correct detections are:
-<p align="center">
-  <img width="600" height="50" src="./img/correct_detection.png">
+<p align="left">
+  <img width="80" height="50" src="./img/correct_detection.png">
 </p>
+
+```
 Recognized: "करने"
 Probability: 0.0503839
+```
 
 
 # 4. Future Work
