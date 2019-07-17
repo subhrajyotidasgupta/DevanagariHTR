@@ -103,23 +103,57 @@ Character error rate: 12.855210%. Word accuracy: 65.909091%.
 ```
 </br>
 
-However for the Devanagari dataset, no such separate word images were available. Therefore, the Word Segmentation implementation played an important role in segmenting the words separately in each of the images of the forms. Each of the words were separated for ~50 forms. The ground truth values were also extracted in a format similar to the IAM ground truths. This was fed to the model. After around 40 epochs, the training stopped. However, it was found, that the model was performing very poorly with around 14% accuracy.
-
-One of the correct detections are:
-<p align="left">
-  <img width="80" height="50" src="./img/correct_detection.png">
-</p>
-
+However for the Devanagari dataset, no such separate word images were available. Therefore, the Word Segmentation implementation played an important role in segmenting the words separately in each of the images of the forms. Each of the words were separated for ~50 forms. The ground truth values were also extracted in a format similar to the IAM ground truths. This was fed to the model. After around 40 epochs, the training stopped. However, initially, it was found, that the model was performing very poorly with around 14% accuracy.
 ```
-Recognized: "करने"
-Probability: 0.0503839
+[OK] "के" -> "के"
+[ERR:4] "बीच" -> "दोएम"
+[ERR:5] "बहुपक्षीय" -> "पर्रीय"
+[ERR:4] "संबंधों" -> "सं्वधिी"
+[OK] "का" -> "का"
+[ERR:2] "युग" -> "दुा"
+[ERR:3] "है।" -> "पूई"
+[ERR:5] "राज्यों" -> "﻿ाा्ी"
+[OK] "के" -> "के"
+[ERR:3] "इन" -> "दू्"
+[ERR:6] "बहुपक्षीय" -> "अा्ा्धीय"
+[ERR:5] "संबंधों" -> "अंसेमरों"
+[OK] "के" -> "के"
+[ERR:5] "संचालन" -> "अधपन"
+Character error rate: 76.245211%. Word accuracy: 8.000000%.
 ```
+Then, to increase the number of training examples, Data Augmentation was used - rotating the image by 5, 10, 340, 350 degrees and also a morphological operation (erosion) was implemented. Thus, it resulted in 6 images per word which increased the number of words from around 1500 to around 9000. The annoatation file was also prepared accordingly.
+This data was fed to the model and it turned out the validation accuracy jumped to ~70%. More than the accuracy, the thing to be noticed is the reduction in the Character recognition error rate.
+That's the power of Data! (Mic drop.)
 
-
+Here are some results:
+```
+[OK] "आदि" -> "आदि"
+[OK] "आदि" -> "आदि"
+[OK] "आदि" -> "आदि"
+[OK] "आदि" -> "आदि"
+[OK] "आदि" -> "आदि"
+[ERR:6] "क्षे़त्रों" -> "बंत़रों"
+[ERR:1] "क्षे़त्रों" -> "क्षे़्रों"
+[ERR:4] "क्षे़त्रों" -> "कोषसन्रों"
+[ERR:8] "क्षे़त्रों" -> "बोनों"
+[OK] "क्षे़त्रों" -> "क्षे़त्रों"
+[OK] "में" -> "में"
+[OK] "में" -> "में"
+[OK] "में" -> "में"
+[OK] "में" -> "में"
+[OK] "में" -> "में"
+[OK] "सहयोग" -> "सहयोग"
+[OK] "सहयोग" -> "सहयोग"
+[OK] "सहयोग" -> "सहयोग"
+[OK] "सहयोग" -> "सहयोग"
+[OK] "सहयोग" -> "सहयोग"
+[OK] "के" -> "के"
+Character error rate: 11.254019%. Word accuracy: 72.666667%.
+```
 # 4. Future Work
-Since the current model did not perform well, as per the study, this project can be given shape in two ways:
+Since the current model performed only fairly well and more generalisation is possible, this project can be given shape in two ways:
 * Preprocess the images - Use Image Processing techniques to preprocess the images more accurately and make it look more like the ones in the IAM dataset. However, a great deal of improvement may not be observed since the model was doing only fairly well with a ~65% accuracy on the IAM dataset itself for which it was designed.
 * Use other Deep Learning approaches - Another approach that could be tried is Character Level Classification. This would be a challenging task since each of the words would be required to be broken down into separate characters for training on a CNN model. 
 
 # 5. Conclusion
-As the ending remarks, it should be noted that this dataset is rather very small to train a Deep Learning model. It can clearly be observed that such a small dataset is definitely not the way to go for a robust Deep Learning model. Techniques like Data Augmentation can be used, however, that would not increase the dataset to a huge extent (not even close to 10^5 - 10^6, which is considered preferable for training any Deep Learning model). On a lighter note, therefore, a hunt for a newer and better dataset involving the Devanagari characters has just begun!
+As the ending remarks, it should be noted that this dataset is rather very small to train a Deep Learning model. It can clearly be observed that such a small dataset is definitely not the way to go for a robust Deep Learning model. There are high chances that the model will not be able to generalise well. More use of techniques like Data Augmentation can be used, however, that would not increase the dataset to a huge extent (not even close to 10^5 - 10^6, which is considered preferable for training any Deep Learning model). On a lighter note, therefore, a hunt for a newer and better dataset involving the Devanagari characters has just begun!
