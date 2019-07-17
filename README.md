@@ -121,7 +121,13 @@ However for the Devanagari dataset, no such separate word images were available.
 [ERR:5] "संचालन" -> "अधपन"
 Character error rate: 76.245211%. Word accuracy: 8.000000%.
 ```
-Then, to increase the number of training examples, Data Augmentation was used - rotating the image by 5, 10, 340, 350 degrees and also a morphological operation (erosion) was implemented. Thus, it resulted in 6 images per word which increased the number of words from around 1500 to around 9000. The annoatation file was also prepared accordingly.
+Then, to increase the number of training examples, Data Augmentation was used - rotating the image by 5, 10, 340, 350 degrees and also a morphological operation (erosion) was implemented. Thus, it resulted in 6 images per word which increased the number of words from around 1500 to around 9000.</br>
+Sample:
+<p align="center">
+  <img width="800" height="80" src="./img/data_augmentation.png">
+</p>
+
+The annoatation file was also prepared accordingly.
 This data was fed to the model and it turned out the validation accuracy jumped to ~70%. More than the accuracy, the thing to be noticed is the reduction in the Character recognition error rate.
 That's the power of Data! (Mic drop.)
 
